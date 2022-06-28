@@ -13,17 +13,33 @@ $(document).ready(function(){
     dinoLetters = body[0][0].split('');
     hiddenArray = body[0][0].split('');
     getHiddenArray(hiddenArray);
-    console.log(dinoLetters);
-    console.log(hiddenArray);
     $('.dinoName').text(hiddenArray.join(' '));
   });
-  $('#submit').click(function(event){
+  let fails = 0;
+  $('form#dinoLetter').submit(function(event){
     event.preventDefault();
     let letter = $('#letter').val();
     $('#letter').val("");
-    console.log(letter);
-    checkArray(letter, dinoLetters, hiddenArray);
-    console.log(hiddenArray);
+    fails += checkArray(letter, dinoLetters, hiddenArray);
     $('.dinoName').text(hiddenArray.join(' '));
+    $('.fails').text(fails);
+    $('.guesses').append(letter + " ")
+    if (fails >= 5) {
+      $('.gameOver').show();
+      $('.rightDino').text(dinoLetters.join(''));
+    }
+    if (dinoLetters.join() == hiddenArray.join()){
+      $('.winner').show();
+    }
   });
+
+  // const newPuzzle = (promise) => {
+  //   promise.then(function(response){
+  //     const body = JSON.parse(response);
+  //     dinoLetters = body[0][0].split('');
+  //     hiddenArray = body[0][0].split('');
+  //     getHiddenArray(hiddenArray);
+  //     $('.dinoName').text(hiddenArray.join(' '));
+  //   });
+  // }
 });

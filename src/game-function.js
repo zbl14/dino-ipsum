@@ -7,9 +7,14 @@ export const getHiddenArray = (array) => {
 }
 
 export const checkArray = (input, completeArray, hiddenArray) => {
-  console.log(completeArray.indexOf(input));
-  if (completeArray.indexOf(input) >= 1) {
-    hiddenArray.splice(completeArray.indexOf(input), 1, input);
-    return hiddenArray;
+  if (completeArray.indexOf(input) >= 0){
+    for(let i = 2; i < hiddenArray.length; i++){
+      if(completeArray[i] == input){
+        hiddenArray.splice(i, 1, input);
+      }
+    }
+    return 0;
+  } else {
+    return 1;
   }
 }

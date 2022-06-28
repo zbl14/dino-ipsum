@@ -4,10 +4,16 @@
 </head>
 <body>
   <div class="container">
-    <label for="letter">Enter a letter!</label>
-    <input id="letter" type="text">
-    <button class="btn-success" id="submit">Submit</button>
+    <form id="dinoLetter">
+      <label for="letter">Enter a lowercase letter!</label>
+      <input id="letter" type="text" pattern="[a-z]{1}" placeholder="Enter one lowercase letter" required>
+      <button class="btn-success" type="submit">Submit</button>
+    </form>
     <div class="dinoName"></div>
+    <div><p>Guessed Letters: <span class="guesses"></span></p></div>
+    <div>Fails: <span class="fails"></span></div>
+    <div class="gameOver"><p>Game Over! The answer was: <span class="rightDino"></span></p></div>
+    <div class="winner"><p>You Win!</p></div>
   </div>
 </body>
 </html>
