@@ -5,17 +5,15 @@ import './css/styles.css';
 import DinoRequest from './dino-request.js';
 import { checkArray, getHiddenArray } from './game-function.js';
 
-$(document).ready(function(){
-  let promise = DinoRequest.getDino();
+function getElements(response) {
   let dinoLetters, hiddenArray;
-  promise.then(function(response){
-    const body = JSON.parse(response);
-    dinoLetters = body[0][0].split('');
-    hiddenArray = body[0][0].split('');
-    getHiddenArray(hiddenArray);
-    $('.dinoName').text(hiddenArray.join(' '));
-  });
+  dinoLetters = response[0][0].split('');
+  hiddenArray = response[0][0].split('');
+  getHiddenArray(hiddenArray);
+  $('.dinoName').text(hiddenArray.join(' '));
+
   let fails = 0;
+
   $('form#dinoLetter').submit(function(event){
     event.preventDefault();
     let letter = $('#letter').val();
@@ -32,14 +30,13 @@ $(document).ready(function(){
       $('.winner').show();
     }
   });
+}
 
-  // const newPuzzle = (promise) => {
-  //   promise.then(function(response){
-  //     const body = JSON.parse(response);
-  //     dinoLetters = body[0][0].split('');
-  //     hiddenArray = body[0][0].split('');
-  //     getHiddenArray(hiddenArray);
-  //     $('.dinoName').text(hiddenArray.join(' '));
-  //   });
-  // }
+async function makeApiCall() {
+  const response = await DinoRequest.getDino();
+  getElements(response);
+}
+
+$(document).ready(function(){
+  makeApiCall();
 });
