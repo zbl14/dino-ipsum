@@ -1,3 +1,7 @@
+body {
+  background-image: url(../assets/images/dinosaurs-pattern-vector.jpg);
+}
+
 .gameOver {
   display: none;
 }
@@ -6,3 +10,51 @@
   display: none;
 }
 
+.box1 {
+  background-color: white;
+  border: solid black;
+  border-radius: 2rem;
+  padding: 10px;
+  width: 50%;
+  display: block;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.box2 {
+  background-color: white;
+  border: solid black;
+  border-radius: 1rem;
+  padding: 10px;
+}
+
+.boldText {
+  font-weight: bolder;
+  font-size: large;
+}
+
+.centerText {
+  text-align: center;
+}
+
+.dinoName {
+  font-size: x-large;
+}
+
+.fails {
+  color: red;
+}
+
+.guesses {
+  font-weight: normal;
+}
+
+.gameOver {
+  font-size: xx-large;
+}
+
+.winner {
+  font-size: xx-large;
+}

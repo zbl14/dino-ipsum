@@ -3,7 +3,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import DinoRequest from './dino-request.js';
-import { checkArray, getHiddenArray } from './game-function.js'
+import { checkArray, getHiddenArray } from './game-function.js';
 
 $(document).ready(function(){
   let promise = DinoRequest.getDino();
@@ -23,7 +23,7 @@ $(document).ready(function(){
     fails += checkArray(letter, dinoLetters, hiddenArray);
     $('.dinoName').text(hiddenArray.join(' '));
     $('.fails').text(fails);
-    $('.guesses').append(letter + " ")
+    $('.guesses').append(letter + " ");
     if (fails >= 5) {
       $('.gameOver').show();
       $('.rightDino').text(dinoLetters.join(''));
