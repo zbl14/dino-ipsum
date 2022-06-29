@@ -5,15 +5,23 @@ import './css/styles.css';
 import DinoRequest from './dino-request.js';
 import { checkArray, getHiddenArray } from './game-function.js';
 
+let dinoLetters, hiddenArray;
+
 function getElements(response) {
-  let dinoLetters, hiddenArray;
   dinoLetters = response[0][0].split('');
   hiddenArray = response[0][0].split('');
   getHiddenArray(hiddenArray);
   $('.dinoName').text(hiddenArray.join(' '));
+}
 
+async function makeApiCall() {
+  const response = await DinoRequest.getDino();
+  getElements(response);
+}
+
+$(document).ready(function(){
+  makeApiCall();
   let fails = 0;
-
   $('form#dinoLetter').submit(function(event){
     event.preventDefault();
     let letter = $('#letter').val();
@@ -30,13 +38,4 @@ function getElements(response) {
       $('.winner').show();
     }
   });
-}
-
-async function makeApiCall() {
-  const response = await DinoRequest.getDino();
-  getElements(response);
-}
-
-$(document).ready(function(){
-  makeApiCall();
 });
