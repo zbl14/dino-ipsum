@@ -1,10 +1,10 @@
 export const getHiddenArray = (array) => {
   let hiddenArray = array;
   for (let i = 2; i < hiddenArray.length - 1; i++){
-    hiddenArray.splice(i, 1, '_')
+    hiddenArray.splice(i, 1, '_');
   }
   return hiddenArray;
-}
+};
 
 export const checkArray = (input, completeArray, hiddenArray) => {
   if (completeArray.indexOf(input) >= 0){
@@ -17,4 +17,4 @@ export const checkArray = (input, completeArray, hiddenArray) => {
   } else {
     return 1;
   }
-}
+};
