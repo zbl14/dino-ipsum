@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
@@ -9,14 +9,14 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-  devtool: 'eval-source-map',  // new line
-  devServer: {                 // new line
-    contentBase: './dist'      // new line
+  devtool: 'eval-source-map',  
+  devServer: {                 
+    contentBase: './dist'      
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Shape Tracker',
+      title: 'Dino-Ipsum',
       template: './src/index.html',
       inject: 'body'
     }),
@@ -25,16 +25,34 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
           'style-loader',
           'css-loader'
         ]
       },
       {
-        test: /\.js$/,
+        test: /\.js$/i,
         exclude: /node_modules/,
         loader: "eslint-loader"
+      },
+      {
+        test: /\.(gif|png|avif|jpe?g|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images/'
+            }
+          }
+        ]
+      },
+      {
+        test:/\.html$/i,
+        use: [
+          'html-loader'
+        ]
       }
     ]
   }
