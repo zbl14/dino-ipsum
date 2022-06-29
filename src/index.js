@@ -7,17 +7,23 @@ import { checkArray, getHiddenArray } from './game-function.js';
 
 let dinoLetters, hiddenArray;
 
-function getElements(response) {
+let getElements = (response) => {
   dinoLetters = response[0][0].split('');
-  hiddenArray = response[0][0].split('');
+  hiddenArray = dinoLetters.slice();
   getHiddenArray(hiddenArray);
   $('.dinoName').text(hiddenArray.join(' '));
-}
+};
 
 async function makeApiCall() {
   const response = await DinoRequest.getDino();
   getElements(response);
 }
+
+let playAgain = () => {
+  $('#playAgain').show().click(function() {
+    location.reload();
+  });
+};
 
 $(document).ready(function(){
   makeApiCall();
@@ -33,11 +39,13 @@ $(document).ready(function(){
     if (fails >= 5) {
       $('.gameOver').show();
       $('.rightDino').text(dinoLetters.join(''));
-      $('button').prop("disabled", true);
+      $('#submit').prop("disabled", true);
+      playAgain();
     }
     if (dinoLetters.join() == hiddenArray.join()){
       $('.winner').show();
-      $('button').prop("disabled", true);
+      $('#submit').prop("disabled", true);
+      playAgain();
     }
   });
 });
