@@ -28,14 +28,16 @@ $(document).ready(function(){
     $('#letter').val("");
     fails += checkArray(letter, dinoLetters, hiddenArray);
     $('.dinoName').text(hiddenArray.join(' '));
-    $('.fails').text(fails);
+    $('.fails').text(fails + "/5");
     $('.guesses').append(letter + " ");
     if (fails >= 5) {
       $('.gameOver').show();
       $('.rightDino').text(dinoLetters.join(''));
+      $('button').prop("disabled", true);
     }
     if (dinoLetters.join() == hiddenArray.join()){
       $('.winner').show();
+      $('button').prop("disabled", true);
     }
   });
 });
