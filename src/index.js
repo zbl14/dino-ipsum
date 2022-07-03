@@ -2,8 +2,8 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import DinoRequest from './dino-request.js';
-import { checkArray, getHiddenArray } from './game-function.js';
+import DinoRequest from './services/dino-request-service';
+import { checkArray, getHiddenArray } from './js/game-function';
 
 let dinoLetters, hiddenArray;
 
