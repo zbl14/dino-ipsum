@@ -47,10 +47,6 @@ body {
   font-weight: normal;
 }
 
-.gameOver {
-  font-size: xx-large;
-}
-
-.winner {
+.gameOver, .winner {
   font-size: xx-large;
 }
