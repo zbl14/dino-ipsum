@@ -2,7 +2,7 @@ body {
   background-image: url(../assets/images/dinosaurs-pattern-vector.jpg);
 }
 
-.gameOver, .winner, #playAgain, .showGif {
+.gameOver, .winner, #playAgain, .showGif, .showErrors {
   display: none;
 }
 
@@ -24,6 +24,18 @@ body {
   border: solid black;
   border-radius: 1rem;
   padding: 10px;
+}
+
+.boxShowGif {
+  background-color: white;
+  border: solid black;
+  border-radius: 2rem;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .boldText {
