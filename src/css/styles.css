@@ -2,7 +2,7 @@ body {
   background-image: url(../assets/images/dinosaurs-pattern-vector.jpg);
 }
 
-.gameOver, .winner, #playAgain {
+.gameOver, .winner, #playAgain, .showGif {
   display: none;
 }
 
