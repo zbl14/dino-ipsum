@@ -1,0 +1,27 @@
+<html lang="en-US">
+<head>
+  <title>Dino-Ipsum</title>
+</head>
+<body>
+  <div class="container">
+    <div class="box1">
+      <h1 class="centerText">Dinosaur Hangman!</h1>
+    </div>
+    <div class="box2">
+      <form id="dinoLetter">
+        <label class="boldText" for="letter">Enter a lowercase letter!</label>
+        <input id="letter" type="text" pattern="[a-z]{1}" placeholder="Enter one lowercase letter" required>
+        <button class="btn-success" type="submit" id="submit">Submit</button>
+      </form>
+      <div class="dinoName"></div>
+      <div class="boldText"><p>Guessed Letters: <span class="guesses"></span></p></div>
+      <div class="boldText">Fails: <span class="fails"></span></div>
+      <div class="gameOver"><p>Game Over! The answer was: <span class="rightDino"></span>. Try again!</p></div>
+      <div class="winner"><p>You Win! Can you do it again?</p></div>
+      <button class="btn-success" type="submit" id="playAgain">Play Again</button>
+    </div>
+    <div class="showGif boxShowGif"></div>
+    <div class="showErrors box2"></div>
+  </div>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
